@@ -1,4 +1,5 @@
 <template>
+	<!-- 数据或无网络的提示界面 -->
 	<view class="nodata">
 		<view class="nodata-content">
 			<view class="text-view a-i-c j-c-c t-a-c">
