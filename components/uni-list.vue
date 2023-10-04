@@ -1,4 +1,5 @@
 <template>
+	<!-- 可滚动的列表容器 -->
 	<!-- #ifdef APP-VUE -->
 	<view class="uni-list">
 		<slot />
