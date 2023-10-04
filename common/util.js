@@ -1,4 +1,5 @@
 function friendlyDate(timestamp) {
+	//将时间戳转换为时间格式
 	var formats = {
 		'year': '%n% 年前',
 		'month': '%n% 月前',
