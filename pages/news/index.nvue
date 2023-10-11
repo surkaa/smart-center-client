@@ -32,7 +32,6 @@ const dom = weex.requireModule('dom');
 // #endif
 
 import newsPage from './news-page.nvue';
-
 // 缓存每页最多
 const MAX_CACHE_DATA = 100;
 // 缓存页签数量
@@ -90,6 +89,15 @@ export default {
   methods: {
     ontabtap(e) {
       let index = e.target.dataset.current || e.currentTarget.dataset.current;
+	  if (index === 1) {
+	      uni.navigateTo({
+	        url: '/pages/chat/chat' // 跳转到Chat页面的路径
+	      });
+	    } else if (index === 2) {
+	      uni.navigateTo({
+	        url: '/pages/about/about' // 跳转到关于页面的路径
+	      });
+	    }
       //let offsetIndex = this._touchTabIndex = Math.abs(index - this._lastTabIndex) > 1;
 
       // #ifdef APP-PLUS || H5 || MP-WEIXIN || MP-QQ

@@ -13,6 +13,9 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -21,21 +24,32 @@ export default {
     };
   },
   methods: {
-    sendMessage() {
+    async sendMessage() {
+	const BASE_URL = "baseUrlTest";
       if (this.userInput.trim() !== '') {
         this.messages.push({
           type: 'user',
           content: this.userInput.trim()
         });
-        // 根据用户输入的内容进行相应的处理
-        // ...
-        this.messages.push({
-          type: 'assistant',
-          content: '收到你的消息啦！'
-        });
-        this.userInput = '';
-      }
-    }
+    
+        try {
+              const requestData = JSON.stringify({ message: this.userInput.trim() });
+        
+              const response = await axios.post(BASE_URL + '/chat', requestData, { headers: { 'Content-Type': 'application/json' } });
+        
+              const assistantMessage = response.data.data.answer;
+        
+              this.messages[this.messages.length - 1].content = assistantMessage;
+            } catch (error) {
+              console.error(error);
+              // Handle error cases
+            }
+        
+            this.userInput = '';
+          }
+        }
+
+
   }
 };
 </script>

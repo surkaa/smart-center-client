@@ -1,6 +1,6 @@
 {
-    "name" : "demo2",
-    "appid" : "__UNI__C7685C5",
+    "name" : "智汇",
+    "appid" : "__UNI__FD14ED6",
     "description" : "基于uni-app开发的新闻/资讯类App模板",
     "versionName" : "3.1.23",
     "versionCode" : 1,
@@ -93,6 +93,20 @@
         "usingComponents" : true
     },
     "h5" : {
+        "devServer" : {
+            "port" : 8080, //浏览器运行端口
+            "https" : false,
+            "proxy" : {
+                "/baseUrlTest" : {
+                    "target" : "http://35.174.6.56:8080",
+                    "changeOrigin" : true,
+                    "secure" : false,
+                    "pathRewrite" : {
+                        "^/baseUrlTest" : ""
+                    }
+                }
+            }
+        },
         "router" : {
             "base" : "./",
             "mode" : "hash"
@@ -104,5 +118,6 @@
             }
         }
     },
-    "vueVersion" : "2"
+    "vueVersion" : "2",
+    "locale" : "zh-Hans"
 }
